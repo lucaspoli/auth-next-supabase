@@ -20,6 +20,9 @@ const supabase = createClient();
 async function signInWithGoogle() {
   const { error } = await supabase.auth.signInWithOAuth({
     provider: "google",
+    options: {
+      redirectTo: `${window.location.origin}/auth/callback`, // Redireciona para a página de callback após o login
+    },
   });
   if (error) {
     console.error("Erro ao autenticar com Google:", error.message);
