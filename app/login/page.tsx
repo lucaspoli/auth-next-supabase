@@ -43,7 +43,7 @@ function LoginPage() {
       console.error("Erro ao enviar link mágico:", error.message);
       setMessage("Erro ao enviar link mágico. Tente novamente.");
     } else {
-      setMessage("Link mágico enviado! Verifique seu e-mail.");
+      setMessage("Link enviado com Sucesso! Verifique seu e-mail.");
     }
   }
 
@@ -57,7 +57,7 @@ function LoginPage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleMagicLogin}>
+          <form onSubmit={handleMagicLogin} className="flex flex-col gap-2">
             <Label htmlFor="email">E-mail:</Label>
             <Input
               id="email"
@@ -70,7 +70,7 @@ function LoginPage() {
               required
             />
             <Button type="submit" disabled={loading}>
-              {loading ? "Enviando..." : "Magic Login"}
+              {loading ? "Enviando..." : "Enviar link de acesso"}
             </Button>
           </form>
           {message && <p className="mt-2 text-sm text-gray-600">{message}</p>}
